@@ -1,36 +1,45 @@
-# CURRENT WORKING STATUS 
+# OpenCore EFI for HP DW3018NO (Tiger Lake)
 
-* Doesn't detect Intel RST/VMD disks
-* Boots into macrecovery
-* Ethernet works 
-* Wifi not working 
-* Added WhateverXe support
-* Touchpad not working in recovery installation screen
-* Can only use external USB disks or Non RST/VMD disks
+OpenCore EFI / `config.plist` for the HP DW3018NO laptop. Work in progress, so expect rough edges.
 
+## Current Working Status
 
-# TO MAKE IT WORK
+| Feature | Status |
+| --- | --- |
+| Boots into macOS Recovery (macrecovery) | ✅ Works |
+| Ethernet | ✅ Works |
+| WhateverXe (Xe iGPU) support | ✅ Added |
+| Wi-Fi | ❌ Not working |
+| Touchpad in the Recovery/installer screen | ❌ Not working |
+| Intel RST/VMD disks | ❌ Not detected |
 
-* remove -allow3d from boot-args 
-* Disable WhatEvergreen kext if using -igfxvesa (optional)
+**Disk limitation:** only external USB disks or non-RST/VMD disks can be used.
 
+## To Make It Work
 
-# THE HARDWARE WHERE IT KINDA WORKS
-# Current Status
+1. Remove `-allow3d` from `boot-args`.
+2. *(Optional)* Disable the `WhateverGreen.kext` entry if you are using `WhateverXe.kext`.
 
-- Does not detect Intel RST/VMD disks
-- Boots into macOS Recovery
-- Touchpad not working during setup/installation
-- Only external USB disks or non-RST/VMD disks can be used
+## Device Properties
 
-# Hardware Where It (Mostly) Works
+Added under `DeviceProperties > Add > PciRoot(0x0)/Pci(0x2,0x0)`:
 
-- HP DW3018NO Laptop
+| Key | Type | Value |
+| --- | --- | --- |
+| `AAPL,ig-platform-id` | Data | `00005C8A` |
+| `device-id` | Data | `528A0000` |
+| `framebuffer-patch-enable` | Data | `01000000` |
+| `framebuffer-stolenmem` | Data | `00003001` |
+| `framebuffer-fbmem` | Data | `00009000` |
+
+- `AAPL,ig-platform-id` is the Ice Lake platform ID `0x8A5C0000`.
+- `device-id` spoofs the Xe iGPU as Ice Lake `0x8A52`, because macOS has no native Tiger Lake driver.
+- `framebuffer-stolenmem` is 19 MB and `framebuffer-fbmem` is 9 MB.
+
+## Tested Hardware
+
+- HP DW3018NO laptop (mostly works)
 
 ## Contributing
 
-Related issues and pull requests are welcome!
-* HP-DW3018NO Laptop
-
-
-## ANY RELATED ISSUES AND COMMITS ARE WELCOME
+Related issues, commits and pull requests are welcome!
