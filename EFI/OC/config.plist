@@ -48,6 +48,14 @@
                     <key>Path</key>
                     <string>SSDT-PNLF.aml</string>
                 </dict>
+                <dict>
+                    <key>Comment</key>
+                    <string></string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>Path</key>
+                    <string>SSDT-GPI0.aml</string>
+                </dict>
             </array>
             <key>Delete</key>
             <array/>
@@ -157,7 +165,21 @@
         <key>DeviceProperties</key>
         <dict>
             <key>Add</key>
-            <dict/>
+            <dict>
+                <key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+                <dict>
+                    <key>AAPL,ig-platform-id</key>
+                    <data>AABcig==</data>
+                    <key>device-id</key>
+                    <data>UooAAA==</data>
+                    <key>framebuffer-fbmem</key>
+                    <data>AACQAA==</data>
+                    <key>framebuffer-patch-enable</key>
+                    <data>AQAAAA==</data>
+                    <key>framebuffer-stolenmem</key>
+                    <data>AAAwAQ==</data>
+                </dict>
+            </dict>
             <key>Delete</key>
             <dict/>
         </dict>
@@ -759,6 +781,78 @@
                     <key>PlistPath</key>
                     <string>Contents/Info.plist</string>
                 </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>IO80211FamilyLegacy.kext</string>
+                    <key>Comment</key>
+                    <string>V1200.12.2b1</string>
+                    <key>Enabled</key>
+                    <false/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/IO80211FamilyLegacy</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>IO80211FamilyLegacy.kext/Contents/PlugIns/AirPortBrcmNIC.kext</string>
+                    <key>Comment</key>
+                    <string>V1400.1.1</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/AirPortBrcmNIC</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>IOSkywalkFamily.kext</string>
+                    <key>Comment</key>
+                    <string>V1.0</string>
+                    <key>Enabled</key>
+                    <false/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/IOSkywalkFamily</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>RTL88WiFi.kext</string>
+                    <key>Comment</key>
+                    <string>V1.0.0</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/RTL88WiFi</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
             </array>
             <key>Block</key>
             <array/>
@@ -882,7 +976,7 @@
                 <key>AppleDebug</key>
                 <true/>
                 <key>ApplePanic</key>
-                <true/>
+                <false/>
                 <key>DisableWatchDog</key>
                 <true/>
                 <key>DisplayDelay</key>
@@ -892,7 +986,7 @@
                 <key>LogModules</key>
                 <string>*</string>
                 <key>SysReport</key>
-                <false/>
+                <true/>
                 <key>Target</key>
                 <integer>67</integer>
             </dict>
@@ -1027,7 +1121,7 @@
                     <key>SystemAudioVolume</key>
                     <data>Rg==</data>
                     <key>boot-args</key>
-                    <string>-amfipassbeta -disablegfxfirmware -igfxvesa npci=0x2000 -vi2c-force-polling -v keepsyms=1 debug=0x100 -lilubetaall watchdog=0 alcid=1</string>
+                    <string>-amfipassbeta -disablegfxfirmware -allow3d npci=0x2000 -vi2c-force-polling -v keepsyms=1 debug=0x100 -lilubetaall watchdog=0 alcid=1</string>
                     <key>csr-active-config</key>
                     <data>AwgAAA==</data>
                     <key>prev-lang:kbd</key>

@@ -1,9 +1,18 @@
-# CURRENT STATUS 
+# CURRENT WORKING STATUS 
 
 * Doesn't detect Intel RST/VMD disks
 * Boots into macrecovery
-* Touchpad not working at setup installation
+* Ethernet works 
+* Wifi not working 
+* Added WhateverXe support
+* Touchpad not working in recovery installation screen
 * Can only use external USB disks or Non RST/VMD disks
+
+
+# TO MAKE IT WORK
+
+* remove -allow3d from boot-args 
+* Disable WhatEvergreen kext if using -igfxvesa (optional)
 
 
 # THE HARDWARE WHERE IT KINDA WORKS
